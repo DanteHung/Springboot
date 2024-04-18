@@ -1,0 +1,32 @@
+server:
+  port: 8092
+
+
+api: 
+  bc-crypto-coingecko:
+    domain: "localhost:8090"
+    base-path: "/crypto/coingecko"
+    endpoints:
+      coins:
+        markets: "/api/v1/coins/markets"
+  bc-stock-finnhub:
+    domain: "localhost:8091"
+    base-path: "/stock/finnhub"
+    endpoints:
+      quote: "/api/v1/quote"
+      profile2: "/api/v1/profile2"
+
+database:
+  postgres: "postgres"
+  # postgres: "db_2309p_forum"
+
+spring.datasource:
+  # driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
+  driverClassName: "org.postgresql.Driver"
+  url: "jdbc:postgresql://localhost:5432/${database.postgres}"
+  username: "postgres"
+  password: "admin1234"
+  
+spring.jpa:
+  show-sql: true
+  hibernate.ddl-auto: update # update
